@@ -19,7 +19,7 @@ const game = {
   }
   console.dir(pokemon, { maxArrayLength: null })
 // exercice 2
-console.log(game)
+// console.log(game) 
 /*
 Exercise 3
 1. Add a new property to the `game` object. Let's call it "difficulty".
@@ -29,7 +29,7 @@ Exercise 3
 Solve Exercise 3 here:
 */
 game.difficulty = "Med";
-console.log(game);
+// console.log(game);
 /*
 Exercise 4
 1. Select a starter Pokémon from the `pokemon` array. Remember, a starter Pokémon's `starter` property is true.
@@ -37,9 +37,8 @@ Exercise 4
 
 
 Solve Exercise 4 here:
-*/
-game.starter = "bulbasaur";
-console.log(game);
+*/game.party.push(pokemon[0])
+// console.log(game); // 
 /*
 Exercise 5
 1. Choose three more Pokémon from the `pokemon` array and add them to your party.
@@ -48,7 +47,8 @@ Exercise 5
 
 Solve Exercise 5 here:
 */
-game.party.push("Ivysaur", "Metapod", "Rattata");
+game.party.push(pokemon[22],pokemon[30],pokemon[40]);
+// console.log(game)
 /*
 Exercise 6
 1. Arrange the Pokémon in `game.party` by their HP. The one with the highest HP should come first.
@@ -56,7 +56,8 @@ Exercise 6
 
 
 Solve Exercise 6 here:
-*/game.party.sort();
+*/game.party.sort((a, b) => b.hp - a.hp)
+// console.log(game)
 /*
 Exercise 7
 1. Set the `completed` property to true for gyms with a difficulty below 3.
@@ -65,8 +66,11 @@ Exercise 7
 
 Solve Exercise 7 here:
 */
-for (let idx = 0; idx < 3; idx++) {
-    console.log(game);
+for (let idx = 0; idx < game.gyms.length; idx++) {
+  if (game.gyms[idx].difficulty<3){
+    game.gyms[idx].completed = true
+  }
+    // console.log(game);
 }
 /*
 Exercise 8
@@ -93,10 +97,10 @@ Exercise 9
 Solve Exercise 9 here:
 */
 for (let idx = 0 ; idx < game.party.length; idx++) {
-    console.log(game[idx]);
+    // console.log(game[idx]);
 }
 for (let idx = 0; idx < game.length; idx++) {
-    console.log(game[idx]);
+    // console.log(game[idx]);
 }
 /*
 Exercise 10
@@ -107,7 +111,7 @@ Exercise 10
 Solve Exercise 10 here:
 */
 game.starter = game[0]; 
-console.log(game);
+// console.log(game);
 /*
 Exercise 11
 1. Add a method called `catchPokemon` to the `game` object. This method should:
@@ -155,7 +159,7 @@ Solve Exercise 13 here:
 // with a difficulty below 6
 
 for (let idx=0; idx < 6; idx++) {
-    console.log(game)
+    // console.log(game)
 }
 /*
 Exercise 14
@@ -213,6 +217,6 @@ Exercise 16
 Solve Exercise 16 here:
 */
 for (let idx =0; idx < 8; idx++) {
-    console.log('objects with true value');
+    // console.log('objects with true value');
 }
 
