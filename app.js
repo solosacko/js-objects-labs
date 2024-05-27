@@ -88,7 +88,9 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 Solve Exercise 8 here:
 */
 // let's update the starter pokemon
-game.starter = "Charmelon";
+game.party.splice(1, 1, pokemon[1])
+console.log(game.party)
+
 /*
 Exercise 9
 1. Print the name of each Pokémon in your party.
@@ -97,10 +99,7 @@ Exercise 9
 Solve Exercise 9 here:
 */
 for (let idx = 0 ; idx < game.party.length; idx++) {
-    // console.log(game[idx]);
-}
-for (let idx = 0; idx < game.length; idx++) {
-    // console.log(game[idx]);
+    console.log(game.party[idx].name);
 }
 /*
 Exercise 10
@@ -110,7 +109,13 @@ Exercise 10
 
 Solve Exercise 10 here:
 */
-game.starter = game[0]; 
+// let's print out all the starter pokemon from the pokemon array
+pokemon.forEach((pokemon, index) => {
+  if(pokemon.starter === true) {
+    console.log(pokemon.name);
+  }
+    
+});
 // console.log(game);
 /*
 Exercise 11
@@ -124,16 +129,15 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 Solve Exercise 11 here:
 */
 // add a method using 'game' object pokemonObj() {
-    game.catchPokemon = {
-        pokemonObj() {
-            console.log('catchPokemon');
-        },
+    game.catchPokemon = (pokemonObj) => {
+      game.party.push(pokemonObj)
     }
+    game.catchPokemon(pokemon[10])
+    console.log(game.party)
   /*
 Exercise 12
 1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
 2. How will you find and update the quantity of pokeballs in the `game.items` array?
-
 Tips:
 For this exercise, it's okay to have a negative number of pokeballs.
 After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
@@ -141,14 +145,12 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 
 Solve Exercise 12 here:
 */
-game.catchPokemon = {
-    pokemonObj() {
-        console.log('catchPokemon');
-for (let idx = 0; idx < pokemonObj; idx++) {
-console.log(game[idx])
-};
-    }
+game.catchPokemon = (pokemonObj) => {
+  game.party.push(pokemonObj)
+game.items[1].quantity --;
 }
+game.catchPokemon(pokemon[20])
+console.log(game.items)
 /*
 Exercise 13
 1. Similar to Exercise 7, now complete gyms with a difficulty below 6. How will you approach this?
