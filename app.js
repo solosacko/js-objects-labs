@@ -158,11 +158,15 @@ Exercise 13
 
 Solve Exercise 13 here:
 */
-// with a difficulty below 6
+// let's loop through the gyms array
 
-for (let idx=0; idx < 6; idx++) {
-    // console.log(game)
+for (let i = 0; i < game.gyms.length; i++) {
+ if (game.gyms[i].difficulty < 6) {
+  game.gyms[i].completed = true;
+ }
 }
+// print out the update gyms array
+console.log(game.gyms);
 /*
 Exercise 14
 1. Create a `gymStatus` method in `game` to tally completed and incomplete gyms.
@@ -185,17 +189,19 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 
 Solve Exercise 14 here:
 */
-const gymTally = {
-    complete: 0,
-    incomplete:0,
+game.gymStatus = function () {
+  const gymTally = {completed: 0, incomplete: 0};
+
+  this.gyms.forEach(gym => {
+    if (gym.completed) {
+      gymTally.completed++;
+    } else {
+      gymTally.incomplete++;
+    }
+  });
+  console.log(gymTally);
 }
-// how many gyms in the array has the value of 'true'
-gymTally.complete = function () {
-    console.log('true');
-};
-gymTally.incomplete = function () {
-    console.log('false');
-}
+game.gymStatus();
 /*
 Exercise 15
 1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
@@ -209,8 +215,10 @@ Solve Exercise 15 here:
 */
 // let's add a 'partyCount method to 'game' that counts the number of pokemon in your party
 game.partyCount = function () {
-    console.log('number of pokemon');
+    return this.party.length;
 }
+console.log(game.partyCount());
+
 /*
 Exercise 16
 1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
@@ -218,7 +226,13 @@ Exercise 16
 
 Solve Exercise 16 here:
 */
-for (let idx =0; idx < 8; idx++) {
+game.gyms.forEach( gym => {
+  if(gym.difficulty < 8) {
+    gym.completed = true;
+  }
+});
+console.log(game.gyms);
     // console.log('objects with true value');
-}
+// Exercise 17,
+console.log(game);
 
